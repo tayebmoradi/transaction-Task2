@@ -7,29 +7,37 @@
     <link rel="stylesheet" href="./styles/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-
   <body>
-    <h4>لیست تراکنش ها</h4>
-    <button id="dataApi">بارگزاری تراکنش ها</button>
-    
-    <input type="text" id="searchInput" placeholder="شماره پیگیری را وارد کنید">
-    <button id="searchButton">جستجو</button>
-    
+    <span class="text">لیست تراکنش ها</span>
+    <div class="button-click">
+       <button id="dataApi" class="btn-button">بارگزاری تراکنش ها</button>
+       <div>
+        <input type="text" id="searchInput" class="input-g" placeholder="شماره پیگیری را وارد کنید">
+       <button id="searchButton" class="btn-button1">جستجو</button>
+       </div>
+       
+    </div>
+   
     <table id="dataTable" border="1" style="width: 100%; margin-top: 20px;">
       <thead>
           <tr>
-              <th>شناسه</th>
-              <th>نوع</th>
-              <th>قیمت</th>
-              <th>شماره مرجع</th>
-              <th>تاریخ</th>
+              <th>Id</th>
+              <th>Type</th>
+              <th>
+                  Price 
+                  <span id="priceSortIcon" class="triangle"></span>
+              </th>
+              <th>RefId</th>
+              <th>
+                  Date 
+                  <span id="dateSortIcon" class="triangle"></span>
+              </th>
           </tr>
       </thead>
       <tbody>
-          
+          <!-- داده‌ها اینجا نمایش داده خواهند شد -->
       </tbody>
   </table>
-    
     <script src="./js/index.js"></script>
   </body>
 </html>

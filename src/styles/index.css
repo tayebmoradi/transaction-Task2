@@ -59,3 +59,58 @@ body {
 html {
   font-size: 62.5%;
 }
+.triangle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid black;
+  transition: transform 0.3s ease; 
+}
+
+.triangle.rotated {
+  transform: rotate(180deg); 
+}
+
+th {
+  cursor: pointer; 
+}
+.text{
+  padding: 20px;
+  display: block;
+  font-weight: 400;
+  font-size: 2rem;
+  padding: 5px;
+
+}
+.button-click{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+.btn-button{
+  width: 250px;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  color: white;
+}
+.btn-button1{
+  width: 250px;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: crimson;
+  color: white;
+}
+.input-g{
+  border: none;
+  padding: 5px;
+  width: 250px;
+  border-radius: 5px;
+}

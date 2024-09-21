@@ -79,3 +79,55 @@ document.getElementById('searchButton').addEventListener('click', function() {
             alert('Error: ' + error.message);
         });
 });
+
+
+document.getElementById('priceSortIcon').addEventListener('click', function() {
+    sortTableBy('price', this);
+});
+
+document.getElementById('dateSortIcon').addEventListener('click', function() {
+    sortTableBy('date', this);
+});
+
+function sortTableBy(field, iconElement) {
+    const apiUrl = `http://localhost:3000/transactions?sort=price`; 
+
+    axios.get(apiUrl)
+    .then(response => {
+        let data = response.data;
+        const tableBody = document.querySelector('#dataTable tbody');
+        tableBody.innerHTML = ''; 
+
+
+        if (iconElement.classList.contains('rotated')) {
+        
+            data.sort((a, b) => field === 'price' ? b.price - a.price : new Date(b.date) - new Date(a.date));
+            iconElement.classList.remove('rotated');
+        } else {
+    
+            data.sort((a, b) => field === 'price' ? a.price - b.price : new Date(a.date) - new Date(b.date));
+            iconElement.classList.add('rotated');
+        }
+
+        let rowsHtml = '';
+        data.forEach(item => {
+            const date = new Date(item.date).toLocaleDateString('fa-IR');
+            
+            rowsHtml += `
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${item.type}</td>
+                    <td>${item.price}</td>
+                    <td>${item.refId}</td>
+                    <td>${date}</td>
+                </tr>
+            `;
+        });
+
+        tableBody.innerHTML = rowsHtml;
+    })
+    .catch(error => {
+        alert('Error: ' + error.message);
+    });
+}
+
